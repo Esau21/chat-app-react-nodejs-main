@@ -19,7 +19,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }).then(() => {
-    console.log("BASE DE DATOS CONECTADA EN EL PUERTO || localhost: 27017");
+    console.log("DB IS SUCCESSFULLY CONNECTED || localhost: 27017");
   }).catch((error) => {
     console.log(error.message);
   });
@@ -28,7 +28,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
 const server = app.listen(app.get('port'), () => {
-  console.log("El servidor esta corriendo en el || localhost:", app.get('port'));
+  console.log("THE SERVER IS RUNNING IN PORT || localhost:", app.get('port'));
 });
 
 const io = socket(server, {

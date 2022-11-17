@@ -53,6 +53,16 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
+const GetUsers = (req, res) => {
+  User.find((err, user) => {
+    if(!err) {
+      res.status(200).json(user);
+    }else {
+      res.status(400).send(err.message)
+    }
+  })
+}
+
 const setAvatar = async (req, res, next) => {
   try {
     const userId = req.params.id;
@@ -84,4 +94,4 @@ const logOut = (req, res, next) => {
   }
 };
 
-module.exports = { login, register, getAllUsers, setAvatar, logOut };
+module.exports = { login, register, getAllUsers, GetUsers, setAvatar, logOut };
